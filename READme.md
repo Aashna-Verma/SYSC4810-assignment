@@ -80,7 +80,9 @@ All tests must be executed from the project root so imports resolve correctly.
 Example:
 
 ```bash
-python -m tests.Problem1c_Test
+python -m tests.test_Problem1c
+python -m tests.test_Problem2d
+python -m tests.test_Problem3c
 ```
 
 ### Run the entire test suite
