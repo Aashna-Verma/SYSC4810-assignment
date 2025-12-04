@@ -117,7 +117,8 @@ def justInvest_CLI():
                 print("Exiting application.")
                 return
 
-            allowed_labels = logged_in_menu(current_user)
+            if current_user is not None:
+                allowed_labels = logged_in_menu(current_user)
 
         # ---------------- LOGGED IN: OPERATIONS MENU ----------------
         else:

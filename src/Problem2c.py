@@ -3,7 +3,6 @@ from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
 
 PASSWD_FILE = Path("data/passwd.txt")
-PASSWD_FILE.parent.mkdir(parents=True, exist_ok=True)
 PASSWD_FILE.touch(exist_ok=True)
 
 # Configure Argon2id hasher

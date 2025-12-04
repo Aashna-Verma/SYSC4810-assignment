@@ -5,11 +5,11 @@ from dataclasses import dataclass
 import src.Problem1c as problem1c
 import src.Problem2c as problem2c
 
-PASSWD_FILE = Path("data/passwd.txt")
-PASSWD_FILE.touch(exist_ok=True)
-
 WEAK_PASSWD_FILE = Path("data/weak_passwords.txt")
 WEAK_PASSWD_FILE.touch(exist_ok=True)
+
+ROLES_FILE = Path("data/roles.txt")
+ROLES_FILE.touch(exist_ok=True)
 
 SPECIAL_CHARS = set("!@#$%*&")
 
@@ -43,8 +43,8 @@ def valid_username(username: str) -> bool:
         return False
 
     # Check if user already exists
-    if PASSWD_FILE.exists():
-        with PASSWD_FILE.open("r", encoding="utf-8") as file:
+    if problem2c.PASSWD_FILE.exists():
+        with problem2c.PASSWD_FILE.open("r", encoding="utf-8") as file:
             for line in file:
                 line = line.strip()
                 if not line:
@@ -100,7 +100,7 @@ def store_roles(username: str, roles: list[str]) -> None:
     Format: username:ROLE1,ROLE2
     """
     entry = f"{username}:{','.join(roles)}\n"
-    with problem2c.ROLES_FILE.open("a", encoding="utf-8") as file:
+    with ROLES_FILE.open("a", encoding="utf-8") as file:
         file.write(entry)
 
 
